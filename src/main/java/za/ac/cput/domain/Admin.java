@@ -1,15 +1,12 @@
 package za.ac.cput.domain;
 
-public class Admin extends User{
-
+public class Admin extends User {
  private String adminID;
 
-
  private Admin(AdminBuilder builder) {
-  ;
+ 
   this.adminID = builder.adminID;
  }
-
  public String getAdminID() {
   return adminID;
  }
@@ -20,20 +17,22 @@ public class Admin extends User{
           "adminID='" + adminID + '\'' +
           '}';
  }
- public static class AdminBuilder extends User.UserBuilder{
+
+ public static class AdminBuilder extends User.UserBuilder {
   private String adminID;
 
-  public AdminBuilder setAdminID(String adminID){
+  public AdminBuilder setAdminID(String adminID) {
    this.adminID = adminID;
    return this;
   }
-  public AdminBuilder copy(Admin admin){
- super.copy(admin);
-   admin.adminID = adminID;
+
+  public AdminBuilder copy(Admin admin) {
+
+   this.adminID = admin.getAdminID();
    return this;
   }
 
-  public Admin build(){
+  public Admin build() {
    return new Admin(this);
   }
  }

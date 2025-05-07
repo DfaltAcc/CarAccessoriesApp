@@ -9,10 +9,10 @@ public class User {
     private String role;
     private String email;
 
-    private User(){
+    public User(){
 
     }
-    private User(UserBuilder builder){
+    protected User(UserBuilder builder){
         this.userID = builder.userID;
         this.name = builder.name;
         this.password = builder.password;
