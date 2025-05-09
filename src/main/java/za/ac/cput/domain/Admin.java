@@ -1,39 +1,14 @@
 package za.ac.cput.domain;
 
 public class Admin extends User {
- private String adminID;
+protected String adminID;
 
- private Admin(AdminBuilder builder) {
- 
-  this.adminID = builder.adminID;
+ public Admin(String userID, String password, String name, String address, String phoneNumber, String role, String email) {
+  super(userID, password, name, address, phoneNumber, role, email);
  }
+
  public String getAdminID() {
   return adminID;
  }
 
- @Override
- public String toString() {
-  return "Admin{" +
-          "adminID='" + adminID + '\'' +
-          '}';
- }
-
- public static class AdminBuilder extends User.UserBuilder {
-  private String adminID;
-
-  public AdminBuilder setAdminID(String adminID) {
-   this.adminID = adminID;
-   return this;
-  }
-
-  public AdminBuilder copy(Admin admin) {
-
-   this.adminID = admin.getAdminID();
-   return this;
-  }
-
-  public Admin build() {
-   return new Admin(this);
-  }
- }
 }
