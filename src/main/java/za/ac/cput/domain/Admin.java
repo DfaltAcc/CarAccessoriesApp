@@ -23,4 +23,16 @@ protected String adminID;
           ", userID='" + userID + '\'' +
           '}';
  }
+ public static class Builder {
+  private String adminID;
+  private String password;
+  private String name;
+  private String address;
+  private String phoneNumber;
+  private String role;
+  private String email;
+
+
+
+ }
 }
