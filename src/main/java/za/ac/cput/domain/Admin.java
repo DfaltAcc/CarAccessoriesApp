@@ -32,7 +32,39 @@ protected String adminID;
   private String role;
   private String email;
 
+  public Builder setAddress(String address) {
+   this.address = address;
+   return this;
+  }
 
+  public Builder setAdminID(String adminID) {
+   this.adminID = adminID;
+   return this;
+  }
 
+  public Builder setEmail(String email) {
+   this.email = email;
+   return this;
+  }
+
+  public Builder setName(String name) {
+   this.name = name;
+   return this;
+  }
+
+  public Builder setPassword(String password) {
+   this.password = password;
+   return this;
+  }
+
+  public Builder setPhoneNumber(String phoneNumber) {
+   this.phoneNumber = phoneNumber;
+   return this;
+  }
+
+  public Builder setRole(String role) {
+   this.role = role;
+   return this;
+  }
  }
 }
