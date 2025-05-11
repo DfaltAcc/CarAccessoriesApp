@@ -8,8 +8,6 @@ public class Review {
     private String comments;
     private LocalDate reviewDate;
 
-
-
 private Review(){}
 
     private Review(Builder builder){
