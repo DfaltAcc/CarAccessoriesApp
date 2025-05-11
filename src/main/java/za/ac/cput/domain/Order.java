@@ -4,13 +4,13 @@ package za.ac.cput.domain;
 //Kholiwe Faith Mafenuka
 //221686584
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Order {
 
         private String orderId;
 
-        private Date orderDate;
+        private LocalDate orderDate;
 
         private double totalAmount;
 
@@ -32,7 +32,8 @@ public class Order {
         return orderId;
     }
 
-    public Date getOrderDate() {
+
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
@@ -58,7 +59,7 @@ public class Order {
     public static class Builder {
 
         private String orderId;
-        private Date orderDate;
+        private LocalDate orderDate;
         private double totalAmount;
         private String status;
 
@@ -66,7 +67,7 @@ public class Order {
             this.orderId = orderId;
             return this;
         }
-        public Builder setOrderDate(Date orderDate) {
+        public Builder setOrderDate(LocalDate orderDate) {
             this.orderDate = orderDate;
             return this;
         }
@@ -95,25 +96,4 @@ public class Order {
 
 }
 
-//To be added in future to merge the whole project
 
-/* // Associations
-       /* private User user; // The customer who placed the order
-        private List<OrderItem> orderItems;
-        private List<Payment> payments;
-        public void addOrderItem(OrderItem item) {
-
-            orderItems.add(item);
-            recalculateTotalAmount();
-        }
-
-        private void recalculateTotalAmount() {
-            totalAmount = orderItems.stream()
-                    .mapToDouble(OrderItem::getSubtotal)
-                    .sum();
-        }
-
-        public void addPayment(Payment payment) {
-            payments.add(payment);
-        }
-        */
