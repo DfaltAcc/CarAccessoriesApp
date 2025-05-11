@@ -52,21 +52,26 @@ public Review(){}
         private String comments;
         private LocalDate reviewDate;
 
-        public void setReviewId(String reviewId) {
+
+        public Builder setReviewId (String reviewId){
             this.reviewId = reviewId;
+            return this;
         }
-
-        public void setRating(int rating) {
+        public Builder setRating (int rating){
             this.rating = rating;
+            return this;
         }
-
-        public void setComments(String comments) {
+        public Builder setComments (String comments){
             this.comments = comments;
+            return this;
+        }
+        public Builder setReviewDate (LocalDate reviewDate){
+            this.reviewDate = reviewDate;
+            return this;
         }
 
-        public void setReviewDate(LocalDate reviewDate) {
-            this.reviewDate = reviewDate;
-        }
+
+
         public Builder copy(Review review){
             this.reviewId = review.reviewId;
             this.rating = review.rating;
