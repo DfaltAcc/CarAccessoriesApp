@@ -11,7 +11,7 @@ public class Product {
     private String description;
     private String imageUrl;
 
-    public Product(){}
+    private Product(){}
 
     private Product(Builder builder) {
         this.productId = builder.productId;
@@ -24,10 +24,7 @@ public class Product {
         this.description = builder.description;
         this.imageUrl = builder.imageUrl;
 
-
     }
-
-
 
     public String getProductId() {
         return productId;
@@ -91,40 +88,42 @@ public class Product {
         private String description;
         private String imageUrl;
 
-        public void setProductId(String productId) {
+        public Builder setProductId(String productId) {
             this.productId = productId;
+            return this;
         }
-
-        public void setName(String name) {
+        public Builder setName(String name) {
             this.name = name;
+            return this;
         }
-
-        public void setBrand(String brand) {
+        public Builder setBrand(String brand) {
             this.brand = brand;
+            return this;
         }
 
-        public void setSize(String size) {
+        public Builder setSize(String size) {
             this.size = size;
+            return this;
         }
-
-        public void setMaterial(String material) {
+        public Builder setMaterial(String material) {
             this.material = material;
+            return this;
         }
-
-        public void setPrice(double price) {
+        public Builder setPrice(double price) {
             this.price = price;
+            return this;
         }
-
-        public void setStockQuantity(int stockQuantity) {
+        public Builder setStockQuantity(int stockQuantity) {
             this.stockQuantity = stockQuantity;
+            return this;
         }
-
-        public void setDescription(String description) {
+        public Builder setDescription(String description) {
             this.description = description;
+            return this;
         }
-
-        public void setImageUml(String imageUrl) {
+        public Builder setImageUrl(String imageUrl) {
             this.imageUrl = imageUrl;
+            return this;
         }
 
         public Builder copy(Product product) {
