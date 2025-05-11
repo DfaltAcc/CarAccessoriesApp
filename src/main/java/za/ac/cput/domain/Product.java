@@ -9,7 +9,7 @@ public class Product {
     private double price;
     private int stockQuantity;
     private String description;
-    private String imageUml;
+    private String imageUrl;
 
     public Product(){}
 
@@ -22,7 +22,8 @@ public class Product {
         this.price = builder.price;
         this.stockQuantity = builder.stockQuantity;
         this.description = builder.description;
-        this.imageUml = builder.imageUml;
+        this.imageUrl = builder.imageUrl;
+
 
     }
 
@@ -60,8 +61,8 @@ public class Product {
         return description;
     }
 
-    public String getImageUml() {
-        return imageUml;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     @Override
@@ -75,7 +76,7 @@ public class Product {
                 ", price=" + price +
                 ", stockQuantity=" + stockQuantity +
                 ", description='" + description + '\'' +
-                ", imageUml='" + imageUml + '\'' +
+                ", imageUml='" + imageUrl + '\'' +
                 '}';
     }
 
@@ -88,7 +89,7 @@ public class Product {
         private double price;
         private int stockQuantity;
         private String description;
-        private String imageUml;
+        private String imageUrl;
 
         public void setProductId(String productId) {
             this.productId = productId;
@@ -122,8 +123,8 @@ public class Product {
             this.description = description;
         }
 
-        public void setImageUml(String imageUml) {
-            this.imageUml = imageUml;
+        public void setImageUml(String imageUrl) {
+            this.imageUrl = imageUrl;
         }
 
         public Builder copy(Product product) {
@@ -135,7 +136,7 @@ public class Product {
             this.price = product.price;
             this.stockQuantity = product.stockQuantity;
             this.description = product.description;
-            this.imageUml = product.imageUml;
+            this.imageUrl = product.imageUrl;
             return this;
         }
         public Product build() {
