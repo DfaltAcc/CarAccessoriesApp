@@ -73,7 +73,7 @@ public class Product {
                 ", price=" + price +
                 ", stockQuantity=" + stockQuantity +
                 ", description='" + description + '\'' +
-                ", imageUml='" + imageUrl + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 
