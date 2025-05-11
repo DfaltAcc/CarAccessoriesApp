@@ -1,20 +1,26 @@
 package za.ac.cput.domain;
 
 public class Admin extends User {
-protected String adminID;
+private String adminID;
 
- public Admin(String userID, String password, String name, String address, String phoneNumber, String role, String email) {
-  super(userID, password, name, address, phoneNumber, role, email);
+
+ public Admin(Builder builder) {
+  super(builder.userID,builder.password
+          ,builder.name,builder.address
+          ,builder.phoneNumber,builder.role
+          ,builder.email);
+  this.adminID = builder.adminID;
  }
 
- public String getAdminID() {
+ protected String getAdminID() {
   return adminID;
  }
 
  @Override
  public String toString() {
   return "Admin{" +
-          "address='" + address + '\'' +
+          "adminID='" + adminID + '\'' +
+          ", address='" + address + '\'' +
           ", email='" + email + '\'' +
           ", name='" + name + '\'' +
           ", password='" + password + '\'' +
@@ -23,6 +29,7 @@ protected String adminID;
           ", userID='" + userID + '\'' +
           '}';
  }
+
  public static class Builder {
   private String adminID;
   private String password;
@@ -31,6 +38,7 @@ protected String adminID;
   private String phoneNumber;
   private String role;
   private String email;
+  private String userID;
 
   public Builder setAddress(String address) {
    this.address = address;
@@ -65,6 +73,26 @@ protected String adminID;
   public Builder setRole(String role) {
    this.role = role;
    return this;
+  }
+  public Builder setUserID(String userID) {
+   this.userID = userID;
+   return this;
+  }
+  public Builder copy(Builder builder) {
+        this.adminID = builder.adminID;
+        this.password = builder.password;
+        this.name = builder.name;
+        this.address = builder.address;
+        this.phoneNumber = builder.phoneNumber;
+        this.role = builder.role;
+        this.email = builder.email;
+        this.userID = builder.userID;
+
+        return this;
+
+  }
+  public Admin build() {
+   return new Admin(this);
   }
  }
 }
