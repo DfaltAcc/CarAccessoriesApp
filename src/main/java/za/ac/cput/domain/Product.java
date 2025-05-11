@@ -11,6 +11,7 @@ public class Product {
     private String description;
     private String imageUrl;
 
+
     private Product(){}
 
     private Product(Builder builder) {
