@@ -10,13 +10,15 @@ public class Review {
 
 
 
+public Review(){}
 
-    public Review(String reviewId, int rating, String comments, LocalDate reviewDate) {
-        this.reviewId = reviewId;
-        this.rating = rating;
-        this.comments = comments;
-        this.reviewDate = reviewDate;
+    private Review(Builder builder){
+    this.reviewId = builder.reviewId;
+        this.rating = builder.rating;
+        this.comments = builder.comments;
+        this.reviewDate = builder.reviewDate;
     }
+
 
     public String getReviewId() {
         return reviewId;
@@ -42,5 +44,38 @@ public class Review {
                 ", comments='" + comments + '\'' +
                 ", reviewDate=" + reviewDate +
                 '}';
+    }
+
+    public static class Builder{
+        private String reviewId;
+        private int rating;
+        private String comments;
+        private LocalDate reviewDate;
+
+        public void setReviewId(String reviewId) {
+            this.reviewId = reviewId;
+        }
+
+        public void setRating(int rating) {
+            this.rating = rating;
+        }
+
+        public void setComments(String comments) {
+            this.comments = comments;
+        }
+
+        public void setReviewDate(LocalDate reviewDate) {
+            this.reviewDate = reviewDate;
+        }
+        public Builder copy(Review review){
+            this.reviewId = review.reviewId;
+            this.rating = review.rating;
+            this.comments = review.comments;
+            this.reviewDate = review.reviewDate;
+            return this;
+        }
+        public Review build(){
+            return new Review(this);
+        }
     }
 }
