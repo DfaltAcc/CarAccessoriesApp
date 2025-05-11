@@ -10,7 +10,7 @@ public class Review {
 
 
 
-public Review(){}
+private Review(){}
 
     private Review(Builder builder){
     this.reviewId = builder.reviewId;
