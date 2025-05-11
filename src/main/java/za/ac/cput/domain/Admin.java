@@ -4,7 +4,7 @@ public class Admin extends User {
 private String adminID;
 
 
- public Admin(Builder builder) {
+ private Admin(Builder builder) {
   super(builder.userID,builder.password
           ,builder.name,builder.address
           ,builder.phoneNumber,builder.role
@@ -12,7 +12,7 @@ private String adminID;
   this.adminID = builder.adminID;
  }
 
- protected String getAdminID() {
+ public String getAdminID() {
   return adminID;
  }
 
