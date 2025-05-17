@@ -8,7 +8,7 @@ public class AdminFactory {
     public static Admin createAdmin(String address, String adminID,String password,
                                     String name,String phoneNumber,String email,
                                     String role, String userID) {
-        if(Helper.isNullOrEmpty(name)
+        if(       Helper.isNullOrEmpty(name)
                 ||Helper.isNullOrEmpty(address)
                 ||Helper.isNullOrEmpty(adminID)
                 ||Helper.isNullOrEmpty(phoneNumber)
@@ -36,4 +36,5 @@ if(!Helper.validatePassword(password).isValid()){
                 .build();
 
     }
+
 }
