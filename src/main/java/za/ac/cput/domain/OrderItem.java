@@ -41,7 +41,7 @@ public class OrderItem {
                 '}';
     }
 
-    public class Builder {
+    public static class Builder {
         private String orderItemId;
         private int quantity;
         private double priceAtPurchase;
