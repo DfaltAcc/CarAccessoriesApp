@@ -1,14 +1,14 @@
 package za.ac.cput.domain;
 
 public class Admin extends User {
-private String adminID;
+ private String adminID;
 
 
  private Admin(Builder builder) {
-  super(builder.userID,builder.password
-          ,builder.name,builder.address
-          ,builder.phoneNumber,builder.role
-          ,builder.email);
+  super(builder.userID, builder.password,
+          builder.name, builder.address,
+          builder.phoneNumber, builder.role,
+          builder.email);
   this.adminID = builder.adminID;
  }
 
@@ -75,23 +75,26 @@ private String adminID;
    this.role = role;
    return this;
   }
+
   public Builder setUserID(String userID) {
    this.userID = userID;
    return this;
   }
-  public Builder copy(Builder builder) {
-        this.adminID = builder.adminID;
-        this.password = builder.password;
-        this.name = builder.name;
-        this.address = builder.address;
-        this.phoneNumber = builder.phoneNumber;
-        this.role = builder.role;
-        this.email = builder.email;
-        this.userID = builder.userID;
 
-        return this;
+  public Builder copy(Builder builder) {
+   this.adminID = builder.adminID;
+   this.password = builder.password;
+   this.name = builder.name;
+   this.address = builder.address;
+   this.phoneNumber = builder.phoneNumber;
+   this.role = builder.role;
+   this.email = builder.email;
+   this.userID = builder.userID;
+
+   return this;
 
   }
+
   public Admin build() {
    return new Admin(this);
   }
