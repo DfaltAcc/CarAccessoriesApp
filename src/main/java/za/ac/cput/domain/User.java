@@ -124,7 +124,7 @@ protected User(){}
             this.phoneNumber=builder.phoneNumber;
             return this;
         }
-        public User Build(){
+        public User build(){
             return new User(this);
         }
     }
