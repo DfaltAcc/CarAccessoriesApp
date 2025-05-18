@@ -14,10 +14,10 @@ public class UserFactory {
                 || Helper.isNullOrEmpty(userID))
             return null;
 
-        if (!Helper.validateEmail(email)) {
+        if (Helper.isValidEmail(email)) {
             return null;
         }
-        if (!Helper.validatePassword(password).isValid()) {
+        if (Helper.isNullOrEmpty(password)) {
             return null;
         }
 
