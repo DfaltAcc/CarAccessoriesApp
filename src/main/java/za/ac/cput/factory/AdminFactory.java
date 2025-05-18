@@ -16,7 +16,7 @@ public class AdminFactory {
                 ||Helper.isNullOrEmpty(userID))
             return null;
 
-if(!Helper.isValidEmail(email)){
+if(Helper.isValidEmail(email)){
     return null;
 
 }
