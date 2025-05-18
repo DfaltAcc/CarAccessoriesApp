@@ -16,12 +16,12 @@ public class AdminFactory {
                 ||Helper.isNullOrEmpty(userID))
             return null;
 
-if(!Helper.validateEmail(email)){
-    return null;
-}
-if(!Helper.validatePassword(password).isValid()){
+if(!Helper.isValidEmail(email)){
     return null;
 
+}
+if(Helper.isNullOrEmpty(password)){
+    return null;
 }
 
         return new Admin.Builder()
