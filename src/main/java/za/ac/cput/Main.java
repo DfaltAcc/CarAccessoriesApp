@@ -7,8 +7,10 @@
      Date: 18 May 2025 */
 
 
-package za.ac.cput.domain;
+package za.ac.cput;
 
+
+import za.ac.cput.domain.Payment;
 
 import java.time.LocalDate;
 
