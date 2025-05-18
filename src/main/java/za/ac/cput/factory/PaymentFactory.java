@@ -1,10 +1,13 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Payment;
+import za.ac.cput.util.Helper;
 
 import java.time.LocalDate;
 
 public class PaymentFactory {
+
+    private static Helper Helper;
 
     public static Payment createPayment(String paymentID, LocalDate paymentDate, String paymentMethod,
                                         double amount, String status) {
