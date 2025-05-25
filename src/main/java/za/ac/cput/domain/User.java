@@ -6,8 +6,8 @@ import jakarta.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
-
     protected String userID;
+
     protected String name;
     protected String password;
     protected String address;
