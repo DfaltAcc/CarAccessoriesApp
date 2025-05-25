@@ -1,15 +1,24 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Admin extends User {
-private String adminID;
+
+ private String adminID;
 
 
  private Admin(Builder builder) {
-  super(builder.userID,builder.password
-          ,builder.name,builder.address
-          ,builder.phoneNumber,builder.role
-          ,builder.email);
+  super(builder.userID, builder.password,
+          builder.name, builder.address,
+          builder.phoneNumber, builder.role,
+          builder.email);
   this.adminID = builder.adminID;
+ }
+
+ public Admin() {
+
  }
 
  public String getAdminID() {
@@ -39,6 +48,7 @@ private String adminID;
   private String role;
   private String email;
   private String userID;
+
 
   public Builder setAddress(String address) {
    this.address = address;
@@ -74,22 +84,22 @@ private String adminID;
    this.role = role;
    return this;
   }
+
   public Builder setUserID(String userID) {
    this.userID = userID;
    return this;
   }
-  public Builder copy(Builder builder) {
-        this.adminID = builder.adminID;
-        this.password = builder.password;
-        this.name = builder.name;
-        this.address = builder.address;
-        this.phoneNumber = builder.phoneNumber;
-        this.role = builder.role;
-        this.email = builder.email;
-        this.userID = builder.userID;
 
-        return this;
-
+  public Builder copy(Admin admin) {
+   this.adminID = admin.adminID;
+   this.password = admin.password;
+   this.name = admin.name;
+   this.address = admin.address;
+   this.phoneNumber = admin.phoneNumber;
+   this.role = admin.role;
+   this.email = admin.email;
+   this.userID = admin.userID;
+   return this;
   }
   public Admin build() {
    return new Admin(this);
