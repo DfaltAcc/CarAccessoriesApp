@@ -101,7 +101,6 @@ public class Admin extends User {
    this.userID = admin.userID;
    return this;
   }
-
   public Admin build() {
    return new Admin(this);
   }
