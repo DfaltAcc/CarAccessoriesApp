@@ -1,11 +1,18 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 //POJO class
 //Kholiwe Faith Mafenuka
 //221686584
 
+@Entity
+@Table(name = "order_item")
 public class OrderItem {
 
+    @Id
     private String orderItemId;
     private int quantity;
     private double priceAtPurchase;
@@ -60,7 +67,7 @@ public class OrderItem {
             return this;
         }
 
-        public Builder copy(){
+        public Builder copy(OrderItem orderItem){
             this.orderItemId = orderItemId;
             this.quantity = quantity;
             this.priceAtPurchase = priceAtPurchase;

@@ -17,6 +17,7 @@ public class OrderItemFactoryTest extends TestCase {
         assertEquals(2, orderItem.getQuantity());
         assertEquals(250.0, orderItem.getPriceAtPurchase());
     }
+
     public void testCreateOrderItemWithNullId() {
         OrderItem orderItem = OrderItemFactory.createOrderItem(null, 2, 250.00);
         assertNull(orderItem);
