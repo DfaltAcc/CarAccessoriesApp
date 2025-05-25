@@ -1,11 +1,9 @@
 package za.ac.cput.factory;
-
-import junit.framework.TestCase;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.User;
 
-import static junit.framework.TestCase.assertNotNull;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class UserFactoryTest {
     private User user1=UserFactory.createUser("yalon","gray05","Kman","77777"
