@@ -7,15 +7,17 @@
      Date: 11 May 2025 */
 
 package za.ac.cput.domain;
-import java.util.Date;
+
+import java.time.LocalDate;
+import java.util.Objects;
 
 public class Payment {
-    private String paymentID;
-    private Date paymentDate;
-    private String paymentMethod;
-    private double amount;
-    private String status;
 
+    private final String paymentID;
+    private final LocalDate paymentDate;
+    private final String paymentMethod;
+    private final double amount;
+    private final String status;
 
     private Payment(Builder builder) {
         this.paymentID = builder.paymentID;
@@ -29,8 +31,8 @@ public class Payment {
         return paymentID;
     }
 
-    public Date getPaymentDate() {
-        return paymentDate != null ? new Date(paymentDate.getTime()) : null;
+    public LocalDate getPaymentDate() {
+        return paymentDate;
     }
 
     public String getPaymentMethod() {
@@ -45,50 +47,21 @@ public class Payment {
         return status;
     }
 
-    public static class Builder {
-        private String paymentID;
-        private Date paymentDate;
-        private String paymentMethod;
-        private double amount;
-        private String status;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Payment payment = (Payment) o;
+        return Double.compare(payment.amount, amount) == 0 &&
+                Objects.equals(paymentID, payment.paymentID) &&
+                Objects.equals(paymentDate, payment.paymentDate) &&
+                Objects.equals(paymentMethod, payment.paymentMethod) &&
+                Objects.equals(status, payment.status);
+    }
 
-        public Builder() {
-        }
-
-        public Builder paymentID(String paymentID) {
-            this.paymentID = paymentID;
-            return this;
-        }
-
-        public Builder paymentDate(Date paymentDate) {
-            this.paymentDate = paymentDate != null ? new Date(paymentDate.getTime()) : null;
-            return this;
-        }
-
-        public Builder paymentMethod(String paymentMethod) {
-            this.paymentMethod = paymentMethod;
-            return this;
-        }
-
-        public Builder amount(double amount) {
-            this.amount = amount;
-            return this;
-        }
-
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        public Payment build() {
-            if (paymentID == null || paymentID.isEmpty()) {
-                throw new IllegalStateException("Payment ID cannot be null or empty");
-            }
-            if (paymentDate == null) {
-                throw new IllegalStateException("Payment Date cannot be null");
-            }
-            return new Payment(this);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(paymentID, paymentDate, paymentMethod, amount, status);
     }
 
     @Override
@@ -100,5 +73,51 @@ public class Payment {
                 ", amount=" + amount +
                 ", status='" + status + '\'' +
                 '}';
-    }}
+    }
 
+    public static class Builder {
+        private String paymentID;
+        private LocalDate paymentDate;
+        private String paymentMethod;
+        private double amount;
+        private String status;
+
+        public Builder setPaymentID(String paymentID) {
+            this.paymentID = paymentID;
+            return this;
+        }
+
+        public Builder setPaymentDate(LocalDate paymentDate) {
+            this.paymentDate = paymentDate;
+            return this;
+        }
+
+        public Builder setPaymentMethod(String paymentMethod) {
+            this.paymentMethod = paymentMethod;
+            return this;
+        }
+
+        public Builder setAmount(double amount) {
+            this.amount = amount;
+            return this;
+        }
+
+        public Builder setStatus(String status) {
+            this.status = status;
+            return this;
+        }
+
+        public Builder copy(Payment payment) {
+            this.paymentID = payment.paymentID;
+            this.paymentDate = payment.paymentDate;
+            this.paymentMethod = payment.paymentMethod;
+            this.amount = payment.amount;
+            this.status = payment.status;
+            return this;
+        }
+
+        public Payment build() {
+            return new Payment(this);
+        }
+    }
+}
