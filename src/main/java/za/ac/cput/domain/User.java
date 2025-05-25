@@ -18,7 +18,6 @@ public class User {
         this.role = role;
         this.email = email;
     }
-
     public User(Builder builder) {
         this.userID = builder.userID;
         this.name = builder.name;
@@ -128,5 +127,4 @@ protected User(){}
             return new User(this);
         }
     }
-
 }
