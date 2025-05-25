@@ -1,13 +1,7 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.*;
-
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
-    @Id
     protected String userID;
-
     protected String name;
     protected String password;
     protected String address;
@@ -120,14 +114,14 @@ protected User(){}
             this.userID = userID;
             return this;
         }
-        public Builder copy(User user) {
-            this.address = user.address;
-            this.name = user.name;
-            this.userID = user.userID;
-            this.email = user.email;
-            this.password = user.password;
-            this.role = user.role;
-            this.phoneNumber = user.phoneNumber;
+        public Builder copy(Builder builder){
+            this.address=builder.address;
+            this.name=builder.name;
+            this.userID=builder.userID;
+            this.email= builder.email;
+            this.password=builder.password;
+            this.role=builder.role;
+            this.phoneNumber=builder.phoneNumber;
             return this;
         }
         public User build(){
