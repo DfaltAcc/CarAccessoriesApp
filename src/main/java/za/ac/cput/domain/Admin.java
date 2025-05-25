@@ -1,6 +1,11 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Admin extends User {
+
  private String adminID;
 
 
@@ -10,6 +15,10 @@ public class Admin extends User {
           builder.phoneNumber, builder.role,
           builder.email);
   this.adminID = builder.adminID;
+ }
+
+ public Admin() {
+
  }
 
  public String getAdminID() {
@@ -81,20 +90,17 @@ public class Admin extends User {
    return this;
   }
 
-  public Builder copy(Builder builder) {
-   this.adminID = builder.adminID;
-   this.password = builder.password;
-   this.name = builder.name;
-   this.address = builder.address;
-   this.phoneNumber = builder.phoneNumber;
-   this.role = builder.role;
-   this.email = builder.email;
-   this.userID = builder.userID;
-
+  public Builder copy(Admin admin) {
+   this.adminID = admin.adminID;
+   this.password = admin.password;
+   this.name = admin.name;
+   this.address = admin.address;
+   this.phoneNumber = admin.phoneNumber;
+   this.role = admin.role;
+   this.email = admin.email;
+   this.userID = admin.userID;
    return this;
-
   }
-
   public Admin build() {
    return new Admin(this);
   }

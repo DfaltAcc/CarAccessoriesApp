@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
-    User findByEmail(String email);
+public interface UserRepository extends JpaRepository<User,String> {
 }
