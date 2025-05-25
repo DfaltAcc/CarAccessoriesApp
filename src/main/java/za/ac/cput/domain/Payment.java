@@ -1,118 +1,92 @@
-/* Payment.java
-
-     Payment POJO class
-
-     Author: Hlumelo Madlingozi (222648120)
-
-     Date: 11 May 2025 */
-
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+
+@Entity
+@Table(name = "payments")
+
+
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
+
 public class Payment {
 
-    private final String paymentID;
-    private final LocalDate paymentDate;
-    private final String paymentMethod;
-    private final double amount;
-    private final String status;
+    @Id
+    @EqualsAndHashCode.Include
 
-    private Payment(Builder builder) {
-        this.paymentID = builder.paymentID;
-        this.paymentDate = builder.paymentDate;
-        this.paymentMethod = builder.paymentMethod;
-        this.amount = builder.amount;
-        this.status = builder.status;
+    private String paymentId;
+
+    private LocalDate paymentDate;
+    private String paymentMethod;
+    private double amount;
+    private String status;
+
+    private Payment(ManualBuilder manualBuilder) {
+        this.paymentId = manualBuilder.paymentId; // Use consistent field name
+        this.paymentDate = manualBuilder.paymentDate;
+        this.paymentMethod = manualBuilder.paymentMethod;
+        this.amount = manualBuilder.amount;
+        this.status = manualBuilder.status;
     }
 
-    public static Object builder() {
-        return null;
+    public static ManualBuilder manualBuilder() {
+        return new ManualBuilder();
     }
 
-    public String getPaymentID() {
-        return paymentID;
-    }
-
-    public LocalDate getPaymentDate() {
-        return paymentDate;
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Payment payment = (Payment) o;
-        return Double.compare(payment.amount, amount) == 0 &&
-                Objects.equals(paymentID, payment.paymentID) &&
-                Objects.equals(paymentDate, payment.paymentDate) &&
-                Objects.equals(paymentMethod, payment.paymentMethod) &&
-                Objects.equals(status, payment.status);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(paymentID, paymentDate, paymentMethod, amount, status);
-    }
-
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "paymentID='" + paymentID + '\'' +
-                ", paymentDate=" + paymentDate +
-                ", paymentMethod='" + paymentMethod + '\'' +
-                ", amount=" + amount +
-                ", status='" + status + '\'' +
-                '}';
-    }
-
-    public static class Builder {
-        private String paymentID;
+    public static class ManualBuilder {
+        private String paymentId;
         private LocalDate paymentDate;
         private String paymentMethod;
         private double amount;
         private String status;
 
-        public Builder setPaymentID(String paymentID) {
-            this.paymentID = paymentID;
+        public ManualBuilder setPaymentId(String paymentId) {
+            this.paymentId = paymentId;
             return this;
         }
 
-        public Builder setPaymentDate(LocalDate paymentDate) {
+        public ManualBuilder setPaymentDate(LocalDate paymentDate) {
             this.paymentDate = paymentDate;
             return this;
         }
 
-        public Builder setPaymentMethod(String paymentMethod) {
+        public ManualBuilder setPaymentMethod(String paymentMethod) {
             this.paymentMethod = paymentMethod;
             return this;
         }
 
-        public Builder setAmount(double amount) {
+        public ManualBuilder setAmount(double amount) {
             this.amount = amount;
             return this;
         }
 
-        public Builder setStatus(String status) {
+        public ManualBuilder setStatus(String status) {
             this.status = status;
             return this;
         }
 
-        public Builder copy(Payment payment) {
-            this.paymentID = payment.paymentID;
+        public ManualBuilder copy(Payment payment) {
+            this.paymentId = payment.paymentId; // Use consistent field name
             this.paymentDate = payment.paymentDate;
             this.paymentMethod = payment.paymentMethod;
             this.amount = payment.amount;
@@ -124,4 +98,5 @@ public class Payment {
             return new Payment(this);
         }
     }
+
 }

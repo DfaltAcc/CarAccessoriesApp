@@ -16,9 +16,9 @@ public class ProductFactory {
             return null;
         }
 
-        if (price <= 0 || stockQuantity < 0) {
-            return null;
-        }
+//        if (price <= 0 || stockQuantity < 0) {
+//            return null;
+//        }
 
         String productId = Helper.generateId();
 
