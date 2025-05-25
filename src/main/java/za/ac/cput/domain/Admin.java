@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Admin extends User {
+
  private String adminID;
 
 
