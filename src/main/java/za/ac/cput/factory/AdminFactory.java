@@ -1,28 +1,18 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Admin;
-import za.ac.cput.domain.User;
+
 import za.ac.cput.util.Helper;
 
 public class AdminFactory {
-    public static Admin createAdmin(String address, String adminID,String password,
-                                    String name,String phoneNumber,String email,
+    public static Admin createAdmin(String address, String adminID, String password,
+                                    String name, String phoneNumber, String email,
                                     String role, String userID) {
-        if(       Helper.isNullOrEmpty(name)
-                ||Helper.isNullOrEmpty(address)
-                ||Helper.isNullOrEmpty(adminID)
-                ||Helper.isNullOrEmpty(phoneNumber)
-                ||Helper.isNullOrEmpty(role)
-                ||Helper.isNullOrEmpty(userID))
+        if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(address) || Helper.isNullOrEmpty(adminID) ||
+                Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(role) || Helper.isNullOrEmpty(userID) ||
+                Helper.isNullOrEmpty(password) || !Helper.isValidEmail(email)) {
             return null;
-
-if(Helper.isValidEmail(email)){
-    return null;
-
-}
-if(Helper.isNullOrEmpty(password)){
-    return null;
-}
+        }
 
         return new Admin.Builder()
                 .setAdminID(adminID)
@@ -34,7 +24,5 @@ if(Helper.isNullOrEmpty(password)){
                 .setPhoneNumber(phoneNumber)
                 .setRole(role)
                 .build();
-
     }
-
 }
